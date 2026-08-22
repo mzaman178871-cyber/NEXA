@@ -1,0 +1,245 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+}
+
+/* ===== LEFT PANEL ===== */
+.left-panel {
+  background: #080000;
+  border-right: 1px solid #ff000033;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-header h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: #ff0000;
+  letter-spacing: 3px;
+}
+
+.panel-icon {
+  font-size: 1.2rem;
+}
+
+.project-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(255,0,0,0.08);
+  border: 1px solid #ff000033;
+  border-radius: 10px;
+  padding: 12px 15px;
+  letter-spacing: 2px;
+}
+
+.journey-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.journey-step {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.journey-step.completed {
+  color: #00ff44;
+  background: rgba(0,255,68,0.08);
+  border: 1px solid #00ff4433;
+}
+
+.journey-step.active {
+  color: #ff0000;
+  background: rgba(255,0,0,0.1);
+  border: 1px solid #ff000055;
+  box-shadow: 0 0 15px #ff000033;
+}
+
+.journey-line {
+  width: 2px;
+  height: 15px;
+  background: #1a1a1a;
+  margin-left: 25px;
+}
+
+.journey-line.completed {
+  background: #00ff4444;
+}
+
+/* ===== CENTER PANEL ===== */
+.center-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 35px;
+  background: radial-gradient(ellipse at center, #0a0000 0%, #000000 100%);
+  border-right: 1px solid #ffffff11;
+}
+
+.center-top {
+  text-align: center;
+}
+
+.center-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 3px;
+  line-height: 1.3;
+}
+
+.center-title span {
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff000088;
+}
+
+.center-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #444444;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.command-zone {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.command-input {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #ff000033;
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.command-input:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 30px #ff000022;
+  background: rgba(255,0,0,0.04);
+}
+
+.command-input::placeholder {
+  color: #333333;
+}
+
+.command-btn {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px #ff000044;
+}
+
+.command-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px #ff000077;
+  background: linear-gradient(135deg, #00ffff, #0088aa);
+  color: #000000;
+}
+
+.current-objective {
+  background: rgba(0,255,68,0.05);
+  border: 1px solid #00ff4433;
+  border-radius: 12px;
+  padding: 18px 25px;
+  width: 100%;
+}
+
+.objective-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #00ff44;
+  letter-spacing: 3px;
+}
+
+.objective-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+/* ===== RIGHT PANEL ===== */
+.right-panel {
+  background: #000a08;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-panel .panel-header h3 {
+  color: #00ffff;
+}
+
+.companion-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.nexa-message {
+  background: rgba(0,255,255,0.05);
+  border: 1px solid #00ffff22;
+}
+
+.message-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #00ffff;
+  letter-spacing: 3px;
+}
+
+.message p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  margin-top: 8px;
+  line-height: 1.6;
+}
