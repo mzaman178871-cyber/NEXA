@@ -1,6 +1,6 @@
 .dashboard {
   display: grid;
-  grid-template-columns: 280px 1fr 300px;
+  grid-template-columns: 260px 1fr 300px;
   height: 100vh;
   background: #000000;
   overflow: hidden;
@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  overflow-y: auto;
 }
 
 .panel-header {
@@ -47,7 +48,6 @@
 .journey-map {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .journey-step {
@@ -88,56 +88,198 @@
 .center-panel {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  gap: 35px;
+  padding: 30px;
   background: radial-gradient(ellipse at center, #0a0000 0%, #000000 100%);
   border-right: 1px solid #ffffff11;
+  overflow-y: auto;
+  position: relative;
+  gap: 20px;
 }
 
-.center-top {
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
+  gap: 15px;
+  opacity: 0.4;
 }
 
-.center-title {
+.empty-icon {
+  font-size: 4rem;
+}
+
+.empty-state h2 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-size: 1.5rem;
   color: #ffffff;
-  letter-spacing: 3px;
-  line-height: 1.3;
+  letter-spacing: 4px;
 }
 
-.center-title span {
-  color: #ff0000;
-  text-shadow: 0 0 20px #ff000088;
-}
-
-.center-subtitle {
+.empty-state p {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: #444444;
-  margin-top: 10px;
-  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: #666666;
 }
 
-.command-zone {
-  width: 100%;
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.loading-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff0000;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+  background: #00ffff;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+  background: #00ff44;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.loading-state p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  color: #ff0000;
+  letter-spacing: 3px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.response-block {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+.response-question {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #ffffff11;
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+
+.you-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  color: #ffffff44;
+  letter-spacing: 3px;
+}
+
+.response-question p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #ffffff88;
+  margin-top: 8px;
+}
+
+.response-answer {
+  background: rgba(255,0,0,0.04);
+  border: 1px solid #ff000033;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 0 30px #ff000011;
+}
+
+.nexa-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #ff0000;
+  letter-spacing: 3px;
+}
+
+.response-answer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+.scroll-btn {
+  position: sticky;
+  bottom: 10px;
+  align-self: center;
+  background: rgba(255,0,0,0.2);
+  border: 1px solid #ff000055;
+  color: #ff0000;
+  padding: 8px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(255,0,0,0.4);
+}
+
+/* ===== RIGHT PANEL ===== */
+.right-panel {
+  background: #000a08;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.right-panel .panel-header h3 {
+  color: #00ffff;
+}
+
+.command-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #444444;
+  line-height: 1.5;
+}
+
 .command-input {
   width: 100%;
   background: rgba(255,255,255,0.03);
-  border: 1px solid #ff000033;
+  border: 1px solid #00ffff33;
   border-radius: 16px;
-  padding: 20px;
+  padding: 15px;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   resize: none;
   outline: none;
   transition: all 0.3s ease;
@@ -145,9 +287,8 @@
 }
 
 .command-input:focus {
-  border-color: #ff0000;
-  box-shadow: 0 0 30px #ff000022;
-  background: rgba(255,0,0,0.04);
+  border-color: #00ffff;
+  box-shadow: 0 0 20px #00ffff22;
 }
 
 .command-input::placeholder {
@@ -158,9 +299,9 @@
   background: linear-gradient(135deg, #ff0000, #cc0000);
   color: #ffffff;
   border: none;
-  padding: 15px 30px;
+  padding: 15px;
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 2px;
   border-radius: 12px;
@@ -176,70 +317,30 @@
   color: #000000;
 }
 
+.command-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .current-objective {
   background: rgba(0,255,68,0.05);
   border: 1px solid #00ff4433;
   border-radius: 12px;
-  padding: 18px 25px;
-  width: 100%;
+  padding: 15px;
+  margin-top: auto;
 }
 
 .objective-label {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: #00ff44;
   letter-spacing: 3px;
 }
 
 .objective-text {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #ffffff;
   margin-top: 8px;
-}
-
-/* ===== RIGHT PANEL ===== */
-.right-panel {
-  background: #000a08;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.right-panel .panel-header h3 {
-  color: #00ffff;
-}
-
-.companion-messages {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  flex: 1;
-  overflow-y: auto;
-}
-
-.message {
-  padding: 15px;
-  border-radius: 12px;
-}
-
-.nexa-message {
-  background: rgba(0,255,255,0.05);
-  border: 1px solid #00ffff22;
-}
-
-.message-label {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.65rem;
-  color: #00ffff;
-  letter-spacing: 3px;
-}
-
-.message p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: #aaaaaa;
-  margin-top: 8px;
-  line-height: 1.6;
 }
